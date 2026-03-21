@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Detection</title>
+
+    <!-- If using static CSS (recommended) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- If you want to keep inline CSS, you can remove above line -->
+</head>
+
+<body>
+    <div class="container">
+        <h1>Crop Disease Detection</h1>
+
+        <form method="POST" enctype="multipart/form-data">
+
+            <!-- NEW: CITY INPUT -->
+            <label for="city">Enter City:</label>
+            <input type="text" id="city" name="city" placeholder="e.g. Bhubaneswar" required>
+
+            <!-- CROP INPUT -->
+            <label for="crop">Enter Crop Name:</label>
+            <input type="text" id="crop" name="crop" placeholder="e.g. Tomato" required>
+
+            <!-- IMAGE INPUT -->
+            <label for="leaf_image">Upload Leaf Image:</label>
+            <input type="file" id="leaf_image" name="leaf_image" accept="image/*" required>
+
+            <button type="submit">Predict Disease</button>
+        </form>
+
+        {% if prediction %}
+        <div class="result">
+            <h2>Prediction Result</h2>
+
+            <p><strong>Disease:</strong> {{ prediction }}</p>
+
+            {% if weather_tip %}
+            <p><strong>Weather-Based Tip:</strong> {{ weather_tip }}</p>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        <a href="/">← Back to Home</a>
+    </div>
+</body>
+</html>

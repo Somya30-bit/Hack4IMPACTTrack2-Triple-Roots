@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Weather Advisory</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef7ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 60%;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #1565c0;
+            text-align: center;
+        }
+
+        p.subtitle {
+            text-align: center;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: #1565c0;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0d47a1;
+        }
+
+        .result {
+            margin-top: 30px;
+            background: #f5faff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .result h2 {
+            color: #1565c0;
+            margin-top: 0;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #1565c0;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Weather Advisory</h1>
+        <p class="subtitle">Get crop-specific weather warnings and preventive suggestions</p>
+
+        <form method="POST">
+            <label for="city">Enter City:</label>
+            <input type="text" id="city" name="city" value="{{ city }}" placeholder="e.g. Bhubaneswar" required>
+
+            <label for="crop">Enter Crop Name:</label>
+            <input type="text" id="crop" name="crop" value="{{ crop }}" placeholder="e.g. Tomato" required>
+
+            <button type="submit">Get Advisory</button>
+        </form>
+
+        {% if advisories %}
+        <div class="result">
+            <h2>Advisory Result</h2>
+            <p><strong>City:</strong> {{ city }}</p>
+            <p><strong>Crop:</strong> {{ crop }}</p>
+
+            <ul>
+                {% for advisory in advisories %}
+                <li>{{ advisory }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <a href="/">← Back to Home</a>
+    </div>
+</body>
+</html>
