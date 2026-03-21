@@ -3,95 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KrishiMitra</title>
-
-    <!-- Use Flask static CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>KrishiMitra - Smart Farming Assistant</title>
 
     <style>
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(to right, #e8f5e9, #f1f8e9);
+            margin: 0;
+            padding: 0;
             text-align: center;
-            padding: 40px;
         }
 
         h1 {
             color: #2e7d32;
-            font-size: 36px;
+            margin-top: 40px;
+            font-size: 40px;
         }
 
         p {
             font-size: 18px;
-            color: #444;
+            color: #555;
         }
 
         .container {
             margin-top: 50px;
         }
 
-        .card {
-            display: inline-block;
-            width: 280px;
-            margin: 20px;
-            padding: 25px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 0 12px rgba(0,0,0,0.1);
-        }
-
-        .card h3 {
-            color: #2e7d32;
-        }
-
-        .card p {
-            font-size: 14px;
-            color: #666;
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 12px 20px;
+        a {
+            display: block;
+            margin: 15px auto;
+            padding: 15px;
+            width: 260px;
             background: #2e7d32;
             color: white;
             text-decoration: none;
-            border-radius: 8px;
-            font-size: 16px;
+            border-radius: 10px;
+            font-size: 18px;
+            transition: 0.3s;
         }
 
-        .btn:hover {
+        a:hover {
             background: #1b5e20;
+            transform: scale(1.05);
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 14px;
+            color: gray;
         }
     </style>
 </head>
 
 <body>
+
     <h1>🌾 KrishiMitra</h1>
-    <p>Your Smart Farming Assistant powered by AI</p>
+    <p>AI-powered Smart Farming Assistant</p>
 
     <div class="container">
+        <a href="/disease">🌿 Crop Disease Detection</a>
+        <a href="/weather">🌦 AI Weather Advisory</a>
+        <a href="/market">📊 Market Price Advisory</a>
+    </div>
 
-        <!-- Disease Detection Card -->
-        <div class="card">
-            <h3>Crop Disease Detection</h3>
-            <p>
-                Upload a crop image and detect diseases instantly using AI.
-                Get solutions and preventive measures.
-            </p>
-            <a href="/disease" class="btn">Start Detection</a>
-        </div>
-
-        <!-- Weather Advisory Card -->
-        <div class="card">
-            <h3>AI Weather Advisory</h3>
-            <p>
-                Get real-time weather alerts and crop-specific risk warnings.
-                Stay prepared for upcoming conditions.
-            </p>
-            <a href="/weather" class="btn">Check Weather</a>
-        </div>
-
+    <div class="footer">
+        Built for Hack4IMPACT 🚀
     </div>
 
 </body>
