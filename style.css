@@ -1,27 +1,81 @@
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #e8f5e9;
-}
-
-h1 {
-    color: green;
-    margin-top: 30px;
+    background-color: #eef8ee;
+    color: #1f2d1f;
 }
 
 .container {
-    margin-top: 50px;
+    max-width: 750px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 8px;
+    color: #1c7c3c;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 22px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: left;
+}
+
+.upload-label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="file"],
+select {
+    width: 100%;
+    margin: 10px 0 16px 0;
+    padding: 10px;
+    font-size: 15px;
+    box-sizing: border-box;
 }
 
 button {
-    padding: 10px 20px;
-    background-color: green;
+    background-color: #1c7c3c;
     color: white;
     border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
     cursor: pointer;
-    margin-top: 10px;
+    font-size: 16px;
 }
 
 button:hover {
-    background-color: darkgreen;
+    background-color: #166430;
+}
+
+.hidden {
+    display: none;
+}
+
+.result-line {
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.result-title {
+    font-weight: bold;
+    color: #1c7c3c;
+}
+
+.error {
+    color: #b00020;
+    font-weight: bold;
 }
